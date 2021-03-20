@@ -1,0 +1,31 @@
+@import "~src/assets/scss/colors.scss";
+
+.loading-container {
+  position: absolute;
+  left: calc(50% - 24px);
+  top: 10px;
+
+  .mat-spinner {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+::ng-deep {
+  .http-error-snackbar {
+    background-color: $error-color;
+
+    .mat-button {
+      color: white;
+    }
+  }
+
+  .loading-container {
+    .mat-spinner {
+      svg {
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
+  }
+}

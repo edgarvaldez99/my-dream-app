@@ -1,0 +1,67 @@
+.admin-premises-detail-container {
+  margin-top: 0rem;
+}
+
+.admin-premises-detail-container,
+.admin-premises-detail-card {
+  color: var(--primary);
+}
+
+.admin-premises-detail-container::ng-deep {
+  .mat-card-header-text {
+    margin: 0;
+  }
+}
+
+.row-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.key {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.value {
+  font-size: 16px;
+}
+
+.mat-card .mat-divider-horizontal {
+  position: relative;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.mat-column-acciones {
+  text-align: right;
+}
+
+.mat-flat-button {
+  color: var(--primary);
+  text-align: left;
+  border-radius: 10px;
+
+  .mat-icon {
+    color: var(--default);
+    text-align: right;
+  }
+}
+
+.proyecto-nav-container::ng-deep {
+  .mat-form-field-wrapper {
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 0px;
+  }
+  .mat-icon {
+    color: var(--default);
+  }
+  .mat-form-field-flex > .mat-form-field-infix {
+    padding-left: 0.2rem !important;
+    margin: 0px;
+    border-top: 0em solid transparent;
+  }
+  input.mat-input-element {
+    margin-top: 0em;
+  }
+}

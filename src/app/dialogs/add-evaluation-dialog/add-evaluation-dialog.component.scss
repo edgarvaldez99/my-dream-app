@@ -1,0 +1,16 @@
+mat-form-field {
+  width: 100%;
+}
+
+.btn-default {
+  border: 2px solid;
+  background-color: transparent;
+  border-color: var(--default);
+  color: var(--default);
+  border-radius: 10px;
+}
+
+.btn-default:hover {
+  background-color: var(--default) !important;
+  color: white !important;
+}

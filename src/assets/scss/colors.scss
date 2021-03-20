@@ -1,0 +1,73 @@
+$black: #050505;
+$error-color: #BF1A2F;
+$font-color: #222222;
+$gray: #a6a6a6;
+$green: rgb(0, 140, 73);
+$lightgreen: rgb(136, 189, 47);
+$default-color: $green;
+
+$nextar-black: (
+  50: #a2a2a2,
+  100: #a2a2a2,
+  200: #a2a2a2,
+  300: $font-color,
+  400: $font-color,
+  500: $font-color,
+  600: $font-color,
+  700: $font-color,
+  800: $font-color,
+  900: $font-color,
+  A100: $black,
+  A200: $black,
+  A400: $black,
+  A700: $black,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$nextar-green: (
+  50: $lightgreen,
+  100: $lightgreen,
+  200: $lightgreen,
+  300: $green,
+  400: $green,
+  500: $green,
+  600: $green,
+  700: $green,
+  800: $green,
+  900: $green,
+  A100: #3b7f46,
+  A200: #3b7f46,
+  A400: #3b7f46,
+  A700: #3b7f46,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);

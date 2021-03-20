@@ -1,0 +1,68 @@
+@import "~src/assets/scss/colors.scss";
+
+.gradient {
+  &.mat-flat-button,
+  &.mat-raised-button,
+  &.mat-stroked-button,
+  &.mat-fab,
+  &.mat-mini-fab {
+    color: white;
+    background-color: $default-color;
+    background: linear-gradient(90deg, $lightgreen 0%, $green 35%);
+    &.mat-button-disabled {
+      background-color: rgba(0, 0, 0, 0.12);
+      background: rgba(0, 0, 0, 0.12);
+    }
+    &.outline {
+      border: 2px solid $lightgreen;
+      color: $lightgreen;
+    }
+  }
+  &.mat-button.outline {
+    border: 2px solid $lightgreen;
+    color: $lightgreen;
+  }
+}
+
+.mat-accent {
+  &.mat-button,
+  &.mat-flat-button,
+  &.mat-raised-button,
+  &.mat-stroked-button,
+  &.mat-fab,
+  &.mat-mini-fab {
+    &.outline {
+      border: 2px solid $default-color;
+      color: $default-color;
+    }
+    &.mat-button-disabled {
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+.mat-warn {
+  &.mat-button,
+  &.mat-flat-button,
+  &.mat-raised-button,
+  &.mat-stroked-button,
+  &.mat-fab,
+  &.mat-mini-fab {
+    &.outline {
+      border: 2px solid $error-color;
+      color: $error-color;
+    }
+    &.mat-button-disabled {
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+  &.round {
+    border-radius: 36px;
+  }
+}

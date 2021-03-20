@@ -1,0 +1,65 @@
+<main class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <div>
+        <img
+          [routerLink]="['/']"
+          src="./assets/img/logos/nextar_logo.png"
+          class="logo outline-none">
+        <br/>
+        <p class="logo-title">Herramienta de Evaluación Técnica de Inversiones</p>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="full-width" [formGroup]="loginForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input
+            matInput
+            formControlName="username"
+            type="text"
+          />
+          <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+            El usuario es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            [type]="showPassword ? 'text' : 'password'"
+          />
+          <button
+            type="button"
+            matSuffix
+            mat-icon-button
+            (click)="showPassword = !showPassword"
+          >
+            <mat-icon>
+              {{showPassword ? "visibility_off" : "visibility"}}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+            La contraseña es <strong>requerida</strong>
+          </mat-error>
+          <mat-hint class="forgot-pass">
+            <a (click)="forgotPass()">¿Olvidaste tu contraseña?</a>
+          </mat-hint>
+        </mat-form-field>
+        <div class="mt-3">
+          <button
+            mat-raised-button
+            type="submit"
+            class="full-width gradient"
+            [class.spinner]="isLoading$ | async"
+            [disabled]="isLoading$ | async"
+            (click)="login()"
+          >
+            Iniciar Sesión
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</main>

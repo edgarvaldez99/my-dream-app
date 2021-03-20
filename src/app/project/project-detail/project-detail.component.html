@@ -1,0 +1,222 @@
+<main class="page-container">
+  <section>
+    <div class="container-fluid">
+      <div class="card card-body my-sm-3">
+        <mat-card class="admin-premises-detail-card admin-premises-detail-container mat-elevation-z0">
+          <mat-card-header>
+            <mat-card-title>PROYECTO 1
+              <!--{{item.proyecto}}-->
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="row">
+              <div class="row-title col-12">Datos Básicos del Cliente</div>
+              <div class="col-6 col-md-3 key">Razón Social:</div>
+              <div class="col-6 col-md-3 value">NN</div>
+              <div class="col-6 col-md-3 key">Zona donde estará el Negocio:</div>
+              <div class="col-6 col-md-3 value">Fernando de la Mora</div>
+              <div class="col-6 col-md-3 key">Domicilio:</div>
+              <div class="col-6 col-md-3 value">San Lorenzo</div>
+              <div class="col-6 col-md-3 key">Tipo de Negocio:</div>
+              <div class="col-6 col-md-3 value">X</div>
+              <div class="col-6 col-md-3 key">Localidad:</div>
+              <div class="col-6 col-md-3 value">X</div>
+              <div class="col-6 col-md-3 key">Departamento:</div>
+              <div class="col-6 col-md-3 value">Asunción</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+              <div class="row-title col-12">Área Comercial</div>
+              <div class="col-6 col-md-3 key">Segmento:</div>
+              <div class="col-6 col-md-3 value">Estaciones de Servicio</div>
+              <div class="col-6 col-md-3 key">Asesor Comercial:</div>
+              <div class="col-6 col-md-3 value">Fernando Ruíz</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+              <div class="col-6 col-md-3 key">Tipo de Puesto (EESS):</div>
+              <div class="col-6 col-md-3 value">Puesto de Terceros</div>
+              <div class="col-6 col-md-3 key">Contrato:</div>
+              <div class="col-6 col-md-3 value">Nuevo</div>
+              <div class="col-6 col-md-3 key">Total EESS Área de influencia:</div>
+              <div class="col-6 col-md-3 value">X</div>
+              <div class="col-12 col-md-3 key">Total EESS Petrobras</div>
+              <div class="col-6 col-md-3 offset-md-6 key">Área de influencia:</div>
+              <div class="col-6 col-md-3 value">X</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="container-fluid proyecto-nav-container">
+        <div class="row">
+          <div class="col">
+            <h5 class="text-start">
+              <span>Evaluaciones</span>
+            </h5>
+          </div>
+          <div class="col-auto">
+            <button mat-flat-button matTooltip="Filtrar por escenario" class="material-icons">
+              <span>Escenario</span>
+              <mat-icon style="font-size: 20px;">filter_alt</mat-icon>
+            </button>
+          </div>
+          <div class="col-auto">
+            <button mat-flat-button matTooltip="Filtrar por estado" class="material-icons">
+              <span>Estado</span>
+              <mat-icon style="font-size: 20px;">filter_alt</mat-icon>
+            </button>
+          </div>
+          <div class="col-auto">
+            <button mat-flat-button matTooltip="Filtrar por usuario" class="material-icons">
+              <span>Usuario</span>
+              <mat-icon style="font-size: 20px;">filter_alt</mat-icon>
+            </button>
+          </div>
+          <div class="col-auto">
+            <button mat-flat-button matTooltip="Filtrar por fecha" class="material-icons">
+              <span>Rango de fecha</span>
+              <mat-icon style="font-size: 20px;">calendar_view_month</mat-icon>
+            </button>
+          </div>
+          <div class="col-auto search">
+            <mat-form-field appearance="outline">
+              <input matInput type="text" placeholder="Buscar">
+              <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-body my-sm-3">
+
+        <table mat-table [dataSource]="dataSource" matSort matSortActive="estado" matSortDisableClear
+          matSortDirection="desc">
+
+          <ng-container matColumnDef="evaluaciones">
+            <th mat-header-cell *matHeaderCellDef> EVALUACIÓN </th>
+            <td mat-cell *matCellDef="let row">
+              Evaluacion Inicial
+              <!-- {{row.evaluacion}} -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="escenarios">
+            <th mat-header-cell *matHeaderCellDef> ESCENARIO </th>
+            <td mat-cell *matCellDef="let row">
+              Caso Base
+              <!-- {{row.escenario}} -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="versiones">
+            <th mat-header-cell *matHeaderCellDef> VERSIÓN </th>
+            <td mat-cell *matCellDef="let row">
+              V 00
+              <!-- {{row.escenario}} -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estados">
+            <th mat-header-cell *matHeaderCellDef> ESTADO </th>
+            <td mat-cell *matCellDef="let row">
+              En prospecto
+              <!-- {{row.estado}} -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_creacion">
+            <th mat-header-cell *matHeaderCellDef> FECHA CREACIÓN </th>
+            <td mat-cell *matCellDef="let row">
+              01/01/2021
+              <!-- {{row.fecha_creacion | date: 'dd/MM/yyyy' }} -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_edicion">
+            <th mat-header-cell *matHeaderCellDef> FECHA EDICIÓN </th>
+            <td mat-cell *matCellDef="let row">
+              <!-- {{row.fecha_edicion | date: 'dd/MM/yyyy' }} -->
+              01/01/2022
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="usuarios">
+            <th mat-header-cell *matHeaderCellDef> USUARIO </th>
+            <td mat-cell *matCellDef="let row">
+              <!-- {{row.usuario}} -->
+              Usuario 1
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="tir">
+            <th mat-header-cell *matHeaderCellDef> TIR </th>
+            <td mat-cell *matCellDef="let row">
+              <!-- {{row.usuario}} -->
+              40,9 %
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="van">
+            <th mat-header-cell *matHeaderCellDef> VAN </th>
+            <td mat-cell *matCellDef="let row">
+              <!-- {{row.usuario}} -->
+              12,6 %
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="payback">
+            <th mat-header-cell *matHeaderCellDef> PAYBACK </th>
+            <td mat-cell *matCellDef="let row">
+              ---
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row" class="mobile-row">
+              <button mat-icon-button [matMenuTriggerFor]="menu" class="no-display">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <span>Ver</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Duplicar</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Editar</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div style="width: 100%; margin-left: 45%;">
+          <mat-spinner *ngIf="isLoading" [diameter]="40" style="margin-left: 0;">
+          </mat-spinner>
+        </div>
+
+        <h4 class="text-center my-sm-3" *ngIf="listEvaluations.length === 0 && !isLoading">
+          <span>No se detectaron evaluaciones</span>
+        </h4>
+        <h4 class="text-center my-sm-3"
+          *ngIf="dataSource.filteredData.length === 0 && listEvaluations.length !== 0 && !isLoading">
+          <span>
+            No se encontraron resultados que coincidan con su busqueda
+          </span>
+        </h4>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+  </section>
+  <div class="page-footer">
+    <button mat-stroked-button class="outline round" (click)="newEvaluation()" matTooltip="Crear nueva evaluación">
+      Nueva evaluación
+    </button>
+  </div>
+</main>

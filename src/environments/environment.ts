@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // api: 'http://localhost:5005/heti/api',
+  api: 'http://51.158.145.8:5005/heti/api'
 };
 
 /*

@@ -1,0 +1,53 @@
+.login-container {
+  background-image: url("~src/assets/img/logos/fondo_login.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  background-attachment: local, scroll;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: none;
+  max-width: 500px;
+  min-width: 150px;
+  margin-right: 10%;
+  width: 100%;
+}
+
+.logo {
+  width: 350px;
+  cursor: pointer;
+}
+
+.logo-title {
+  font-size:130%;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.forgot-pass,
+.text-primary {
+  cursor: pointer;
+}
+
+::ng-deep .mat-form-field-underline {
+  /*change color of underline*/
+  background-color: var(--primary) !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: var(--default) !important;
+}
+
+.outline-none {
+  outline: transparent;
+}

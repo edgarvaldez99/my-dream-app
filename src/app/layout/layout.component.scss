@@ -1,0 +1,43 @@
+@import "~src/assets/scss/colors.scss";
+
+$header-heigth: 64px;
+
+.content {
+  background-color: #eff2f5;
+  height: calc(100vh - #{$header-heigth});
+  overflow: auto;
+}
+
+.mat-expansion-panel-header {
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+.mat-list-base .mat-list-item,
+.mat-expansion-panel-header {
+  width: 250px;
+  font-size: 1.1rem;
+  &:hover,
+  &:focus {
+    color: $default-color;
+  }
+}
+
+.layout-global-container::ng-deep {
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+  .mat-expansion-panel .mat-list-item-content {
+    padding: 0 24px;
+  }
+  .mat-accordion>.mat-expansion-panel-spacing:last-child {
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .mat-list-base .mat-list-item,
+  .mat-expansion-panel-header {
+    width: 300px;
+  }
+}
