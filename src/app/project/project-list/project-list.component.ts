@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -38,13 +38,9 @@ export class ProjectListComponent implements OnInit {
     private proyectoInversionService: ProyectoInversionService,
     private filterService: FilterService,
     private router: Router,
-    private paginatorCtrl: MatPaginatorIntl,
     private snackBar: MatSnackBar,
   ) {
     this.dataSource = new MatTableDataSource(this.listProjects);
-    this.paginatorCtrl.itemsPerPageLabel = 'Item por página';
-    this.paginatorCtrl.nextPageLabel = 'Siguiente';
-    this.paginatorCtrl.previousPageLabel = 'Anterior';
   }
 
   ngOnInit(): void {
@@ -84,10 +80,6 @@ export class ProjectListComponent implements OnInit {
       console.log(error);
       this.isLoading = false;
     });
-  }
-
-  newProject(): void {
-    this.router.navigate(['/admin/proyecto_nuevo']);
   }
 
   openSnackBar(message: string, label = 'Procesando'): void {

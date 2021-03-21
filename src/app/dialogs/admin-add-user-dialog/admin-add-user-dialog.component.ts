@@ -38,7 +38,6 @@ export class AdminAddUserDialogComponent implements OnInit {
     rolCtrl: ['', Validators.required]
   });
 
-
   constructor(
     private dialogRef: MatDialogRef<AdminAddUserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: DialogData,

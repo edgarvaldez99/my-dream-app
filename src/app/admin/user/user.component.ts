@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -55,13 +55,9 @@ export class UserComponent implements OnInit {
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private userService: UserService,
-    private paginatorCtrl: MatPaginatorIntl,
     private filterService: FilterService,
   ) {
     this.dataSource = new MatTableDataSource(this.listUsers);
-    this.paginatorCtrl.itemsPerPageLabel = 'Item por página';
-    this.paginatorCtrl.nextPageLabel = 'Siguiente';
-    this.paginatorCtrl.previousPageLabel = 'Anterior';
   }
 
   ngOnInit(): void {
@@ -84,7 +80,7 @@ export class UserComponent implements OnInit {
         regex.test(data.last_name) ||
         regex.test(data.role) ||
         regex.test(data.status ?? '') ||
-        regex.test(this.activeFilter[data.status ?? 'Inactivo']) ||
+        regex.test(this.activeFilter[data.status ?? '']) ||
         regex.test(data.username);
       /*console.log(result, searchText);*/
       return result;
@@ -108,8 +104,6 @@ export class UserComponent implements OnInit {
   add(): void {
     // Abre el popup de edicion
     const editDialog = this.dialog.open(AdminAddUserDialogComponent, {
-      disableClose: false,
-      width: '500px',
       data: {
         title: 'Nuevo Usuario',
         msg: 'Agregar nuevo usuario',

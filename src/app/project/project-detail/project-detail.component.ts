@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -38,13 +38,9 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private proyectoInversionService: ProyectoInversionService,
     private filterService: FilterService,
-    private paginatorCtrl: MatPaginatorIntl,
     private snackBar: MatSnackBar,
   ) {
     this.dataSource = new MatTableDataSource(this.listEvaluations);
-    this.paginatorCtrl.itemsPerPageLabel = 'Item por página';
-    this.paginatorCtrl.nextPageLabel = 'Siguiente';
-    this.paginatorCtrl.previousPageLabel = 'Anterior';
   }
 
   ngOnInit(): void {
@@ -75,7 +71,6 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   setDetail(item: ProyectoInversion): void {
-    console.log(item);
     this.item = item;
   }
 
@@ -95,27 +90,17 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   newEvaluation(): void {
-    const editDialog = this.dialog.open(AddEvaluationDialogComponent, {
-      disableClose: false,
-      width: '500px',
-      data: {
-        title: 'Nueva Evaluación',
-        msg: 'Nombre de la Evaluación',
-        btn: 'SIGUIENTE',
-        btn2: 'CANCELAR',
-        user: null
-      }
-    });
-
-    // Se ejcuta luego de cerrarse el popup
-    editDialog.afterClosed().subscribe(data => {
-      // Preguntar si se presiono sobre Cancelar
-      const isConfirm = typeof data === 'boolean' && data === true;
-      if (isConfirm) {
-        this.openSnackBar('Aguarde un momento');
-        this.evaluationList();
-      }
-    });
+    this.dialog
+      .open(AddEvaluationDialogComponent)
+      .afterClosed()
+      .subscribe(data => {
+        // Preguntar si se presiono sobre Cancelar
+        const isConfirm = typeof data === 'boolean' && data === true;
+        if (isConfirm) {
+          this.openSnackBar('Aguarde un momento');
+          this.evaluationList();
+        }
+      });
   }
 
 }

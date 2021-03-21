@@ -1,0 +1,157 @@
+<main class="page-container">
+
+  <form [formGroup]="formGroup">
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="text-start">Creación de un proyecto</div>
+          </div>
+        </div>
+
+        <div class="card card-body">
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre del proyecto</mat-label>
+                <input matInput formControlName="nombreDelProyectoCtrl">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+          <h4 style="text-align: center; margin: 0.5em;">Cliente</h4>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Razón Social</mat-label>
+                <input matInput formControlName="razonSocialCtrl">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Zona donde estará el Negocio</mat-label>
+                <mat-select formControlName="zonaNegocioCtrl">
+                  <mat-option *ngFor="let zona of zonas" [value]="zona.zona">{{zona.zona}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Domicilio</mat-label>
+                <input matInput formControlName="domicilioCtrl">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo de Negocio</mat-label>
+                <mat-select formControlName="tipoNegocioCtrl">
+                  <mat-option *ngFor="let tipo of tipos" [value]="tipo.tipo">{{tipo.tipo}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Localidad</mat-label>
+                <input matInput formControlName="localidadCtrl">
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Departamento</mat-label>
+                <mat-select formControlName="departamentoCtrl">
+                  <mat-option *ngFor="let dpto of departamentos" [value]="dpto.departamento">{{dpto.departamento}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+          <h4 style="text-align: center; margin: 0.5em;">Área Comercial</h4>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Segmento</mat-label>
+                <mat-select formControlName="segmentoCtrl">
+                  <mat-option *ngFor="let segmento of segmentos" [value]="segmento.segmento">{{segmento.segmento}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Asesor Comercial</mat-label>
+                <input matInput formControlName="asesorComercialCtrl">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="row" style="margin-top: 1em;">
+            <div class="col" *ngIf="formGroup.value.segmentoCtrl == 'Estación de Servicios'">
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo de puesto (EESS)</mat-label>
+                <mat-select formControlName="tipoPuestoCtrl">
+                  <mat-option *ngFor="let puesto of puestos" [value]="puesto.puesto">{{puesto.puesto}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Indicar Contrato</mat-label>
+                <mat-select formControlName="indicarContratoCtrl">
+                  <mat-option *ngFor="let contrato of contratos" [value]="contrato.contrato">{{contrato.contrato}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col" *ngIf="(formGroup.value.segmentoCtrl == 'Estación de Servicios') && (formGroup.value.tipoPuestoCtrl == 'Puesto Propio')">
+              <mat-form-field appearance="outline">
+                <mat-label>Valor del terreno (obligatorio si PP)</mat-label>
+                <input matInput formControlName="valorTerrenoCtrl">
+              </mat-form-field>
+            </div>
+            <div class="col" *ngIf="(formGroup.value.segmentoCtrl == 'Estación de Servicios') && (formGroup.value.tipoPuestoCtrl == 'Puesto Propio')">
+              <mat-form-field appearance="outline">
+                <mat-label>Fecha compra terreno (obligatorio si PP)</mat-label>
+                <input matInput formControlName="fechaCompraTerrenoCtrl">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col" *ngIf="formGroup.value.segmentoCtrl == 'Estación de Servicios'">
+              <mat-form-field appearance="outline">
+                <mat-label>Total EESS Área de influencia</mat-label>
+                <input matInput formControlName="totalAreaCtrl">
+              </mat-form-field>
+            </div>
+            <div class="col" *ngIf="formGroup.value.segmentoCtrl == 'Estación de Servicios'">
+              <mat-form-field appearance="outline">
+                <mat-label>Total EESS Petrobras Área de influencia</mat-label>
+                <input matInput formControlName="totalAreaDosCtrl">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-footer center-xs">
+      <button mat-flat-button color="accent" type="button" class="outline" (click)="backToProject()">Cancelar</button>
+      <button mat-raised-button color="accent" type="submit">Crear</button>
+    </div>
+  </form>
+</main>

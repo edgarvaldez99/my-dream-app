@@ -1,7 +1,7 @@
 <main class="page-container">
   <section>
     <div class="container-fluid">
-      <div class="card card-body my-sm-3">
+      <div class="card card-body">
         <mat-card class="admin-premises-detail-card admin-premises-detail-container mat-elevation-z0">
           <mat-card-header>
             <mat-card-title>PROYECTO 1
@@ -10,7 +10,7 @@
           </mat-card-header>
           <mat-card-content>
             <div class="row">
-              <div class="row-title col-12">Datos Básicos del Cliente</div>
+              <div class="row-title col-xs-12">Datos Básicos del Cliente</div>
               <div class="col-6 col-md-3 key">Razón Social:</div>
               <div class="col-6 col-md-3 value">NN</div>
               <div class="col-6 col-md-3 key">Zona donde estará el Negocio:</div>
@@ -26,7 +26,7 @@
             </div>
             <mat-divider></mat-divider>
             <div class="row">
-              <div class="row-title col-12">Área Comercial</div>
+              <div class="row-title col-xs-12">Área Comercial</div>
               <div class="col-6 col-md-3 key">Segmento:</div>
               <div class="col-6 col-md-3 value">Estaciones de Servicio</div>
               <div class="col-6 col-md-3 key">Asesor Comercial:</div>
@@ -40,49 +40,46 @@
               <div class="col-6 col-md-3 value">Nuevo</div>
               <div class="col-6 col-md-3 key">Total EESS Área de influencia:</div>
               <div class="col-6 col-md-3 value">X</div>
-              <div class="col-12 col-md-3 key">Total EESS Petrobras</div>
-              <div class="col-6 col-md-3 offset-md-6 key">Área de influencia:</div>
+              <div class="col-6 col-md-3 key">Total EESS Petrobras Área de influencia:</div>
               <div class="col-6 col-md-3 value">X</div>
             </div>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="container-fluid proyecto-nav-container">
+      <div class="proyecto-nav-container">
         <div class="row">
           <div class="col">
-            <h5 class="text-start">
-              <span>Evaluaciones</span>
-            </h5>
+            <div class="text-start">Evaluaciones</div>
           </div>
           <div class="col-auto">
-            <button mat-flat-button matTooltip="Filtrar por escenario" class="material-icons">
+            <button mat-flat-button matTooltip="Filtrar por escenario" class="filter-button">
               <span>Escenario</span>
-              <mat-icon style="font-size: 20px;">filter_alt</mat-icon>
+              <mat-icon color="accent">filter_alt</mat-icon>
             </button>
           </div>
           <div class="col-auto">
-            <button mat-flat-button matTooltip="Filtrar por estado" class="material-icons">
+            <button mat-flat-button matTooltip="Filtrar por estado" class="filter-button">
               <span>Estado</span>
-              <mat-icon style="font-size: 20px;">filter_alt</mat-icon>
+              <mat-icon color="accent">filter_alt</mat-icon>
             </button>
           </div>
           <div class="col-auto">
-            <button mat-flat-button matTooltip="Filtrar por usuario" class="material-icons">
+            <button mat-flat-button matTooltip="Filtrar por usuario" class="filter-button">
               <span>Usuario</span>
-              <mat-icon style="font-size: 20px;">filter_alt</mat-icon>
+              <mat-icon color="accent">filter_alt</mat-icon>
             </button>
           </div>
           <div class="col-auto">
-            <button mat-flat-button matTooltip="Filtrar por fecha" class="material-icons">
+            <button mat-flat-button matTooltip="Filtrar por fecha" class="filter-button">
               <span>Rango de fecha</span>
-              <mat-icon style="font-size: 20px;">calendar_view_month</mat-icon>
+              <mat-icon color="accent">calendar_view_month</mat-icon>
             </button>
           </div>
           <div class="col-auto search">
             <mat-form-field appearance="outline">
               <input matInput type="text" placeholder="Buscar">
-              <mat-icon matPrefix>search</mat-icon>
+              <mat-icon matPrefix color="accent">search</mat-icon>
             </mat-form-field>
           </div>
         </div>
@@ -214,8 +211,8 @@
       </div>
     </div>
   </section>
-  <div class="page-footer">
-    <button mat-stroked-button class="outline round" (click)="newEvaluation()" matTooltip="Crear nueva evaluación">
+  <div class="page-footer right">
+    <button mat-stroked-button class="outline round" color="accent" (click)="newEvaluation()" matTooltip="Crear nueva evaluación">
       Nueva evaluación
     </button>
   </div>
