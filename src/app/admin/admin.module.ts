@@ -7,10 +7,11 @@ import { UserComponent } from './user/user.component';
 import { MaterialModule } from '../material/material.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { DialogsModule } from '../dialogs/dialogs.module';
+import { CurrencyComponent } from './currency/currency.component';
 
 
 @NgModule({
-  declarations: [UserComponent],
+  declarations: [UserComponent, CurrencyComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -95,14 +95,14 @@
 
         <h4 class="text-center my-sm-3" *ngIf="listUsers.length === 0 && !isLoading">
           <span>
-              No se encontraron usuarios
+            No se encontraron usuarios
           </span>
         </h4>
 
         <h4 class="text-center my-sm-3"
           *ngIf="dataSource.filteredData.length === 0 && listUsers.length !== 0 && !isLoading">
           <span>
-              No se encontraron resultados que coincidan con su busqueda
+            No se encontraron resultados que coincidan con su busqueda
           </span>
         </h4>
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

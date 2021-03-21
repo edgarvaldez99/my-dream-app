@@ -1,0 +1,33 @@
+<form [formGroup]="formGroup" (submit)="save()">
+  <h2 mat-dialog-title>{{title}}</h2>
+  <p class="py-2 text-primary"> {{msg}}</p>
+
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Moneda</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="formGroup.controls['name'].hasError('required')">
+        El nombre de la moneda es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Símbolo</mat-label>
+      <input matInput formControlName="symbol">
+      <mat-error *ngIf="formGroup.controls['symbol'].hasError('required')">
+        El símbolo es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cotización actual</mat-label>
+      <input matInput formControlName="current_quote">
+      <mat-error *ngIf="formGroup.controls['current_quote'].hasError('required')">
+        La cotización actual nueva es <strong>requerida</strong>
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="end-xs">
+    <button type="button" mat-flat-button color="accent" class="outline" (click)="close(false)">{{btn2}}</button>
+    <button type="submit" mat-raised-button color="accent" [disabled]="formGroup.invalid">{{btn}}</button>
+  </mat-dialog-actions>
+</form>

@@ -12,7 +12,7 @@ import { ResponsiveService } from '../services/responsive.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
-  toggleSidebarMenuSubscription: Subscription | undefined;
+  toggleSidebarMenuSubscription?: Subscription;
   sidebarMode: MatDrawerMode = 'side';
   menuList: MenuItem[] = [
     {
@@ -22,6 +22,11 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
         {
           name: 'Usuarios',
           path: '/admin/user/list',
+          active: true,
+        },
+        {
+          name: 'Monedas',
+          path: '/admin/currency/list',
           active: true,
         },
       ],

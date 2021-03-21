@@ -6,4 +6,5 @@ export interface DialogData {
   btn: string;
   btn2: string;
   user: User;
+  item?: any;
 }

@@ -10,6 +10,7 @@ import { AdminAddUserDialogComponent } from './admin-add-user-dialog/admin-add-u
 import { AddEvaluationDialogComponent } from './add-evaluation-dialog/add-evaluation-dialog.component';
 import { HelpBuyerDialogComponent } from './help-buyer-dialog/help-buyer-dialog.component';
 import { ChangePasswordDialogComponent } from './change-password-dialog/change-password-dialog.component';
+import { AdminAddCurrencyDialogComponent } from './admin-add-currency-dialog/admin-add-currency-dialog.component';
 
 
 
@@ -22,6 +23,7 @@ import { ChangePasswordDialogComponent } from './change-password-dialog/change-p
     AddEvaluationDialogComponent,
     HelpBuyerDialogComponent,
     ChangePasswordDialogComponent,
+    AdminAddCurrencyDialogComponent,
   ],
   entryComponents: [
     ForgotPasswordDialogComponent,
