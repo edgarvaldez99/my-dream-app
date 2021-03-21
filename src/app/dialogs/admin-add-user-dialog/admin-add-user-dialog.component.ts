@@ -19,7 +19,7 @@ export class AdminAddUserDialogComponent implements OnInit {
   msg = 'Agregar nuevo usuario';
   btn = 'Guardar';
   btn2 = 'Cancelar';
-  user: User | undefined;
+  user?: User;
   showPassword = false;
   showConfirmPassword = false;
   isPasswordChange = false;
@@ -32,8 +32,8 @@ export class AdminAddUserDialogComponent implements OnInit {
   formGroup = this.formBuilder.group(
     {
       username: ['', Validators.required],
-      password: ['', Validators.required],
-      passwordRepeat: ['', Validators.required],
+      password: '',
+      passwordRepeat: '',
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
@@ -58,7 +58,7 @@ export class AdminAddUserDialogComponent implements OnInit {
       this.btn = this.data.btn;
       this.btn2 = this.data.btn2;
       this.title = this.data.title;
-      this.user = this.data.user;
+      this.user = this.data.item;
     }
     this.createForms();
   }
@@ -73,7 +73,7 @@ export class AdminAddUserDialogComponent implements OnInit {
       this.formGroup.get('email')?.setValue(this.user.email);
       this.formGroup.get('rol')?.setValue(this.user.role);
     } else {
-      this.isPasswordChange = true;
+      this.enableChangePassword();
     }
   }
 
@@ -119,6 +119,12 @@ export class AdminAddUserDialogComponent implements OnInit {
         }
       });
     }
+  }
+
+  enableChangePassword(): void {
+    this.isPasswordChange = true;
+    this.formGroup.get('password')?.setValidators(Validators.required);
+    this.formGroup.get('passwordRepeat')?.setValidators(Validators.required);
   }
 
   openSnackBar(message: string, message2: string): void {

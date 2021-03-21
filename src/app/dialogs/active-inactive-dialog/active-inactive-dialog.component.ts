@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserStatusEnum } from 'src/app/enums/user-status.enum';
+import { StatusEnum } from 'src/app/enums/status.enum';
 import { DialogData } from 'src/app/interfaces/dialog-data';
 import { User } from 'src/app/interfaces/user';
 
@@ -16,13 +16,13 @@ export class ActiveInactiveDialogComponent implements OnInit {
   msg = '';
   btn = '';
   btn2 = '';
-  user: User | undefined;
-  estados: Array<{ estado: UserStatusEnum }> = [
-    { estado: UserStatusEnum.ACTIVE },
-    { estado: UserStatusEnum.INACTIVE }
+  status?: string;
+  estados: Array<{ estado: StatusEnum }> = [
+    { estado: StatusEnum.ACTIVE },
+    { estado: StatusEnum.INACTIVE }
   ];
   formGroup = this.formBuilder.group({
-    statusCtrl: [UserStatusEnum.INACTIVE, Validators.required]
+    statusCtrl: [StatusEnum.INACTIVE, Validators.required]
   });
 
   constructor(
@@ -38,14 +38,9 @@ export class ActiveInactiveDialogComponent implements OnInit {
       this.msg = this.data.msg;
       this.btn = this.data.btn;
       this.btn2 = this.data.btn2;
-      this.user = this.data.user;
+      this.status = this.data.item;
     }
-    this.showdata();
-  }
-
-  showdata(): void {
-    const status = this.user?.status ?? '';
-    this.formGroup.get('statusCtrl')?.setValue(status);
+    this.formGroup.get('statusCtrl')?.setValue(this.status ?? '');
   }
 
   openSnackBar(message: string, message2: string): void {
@@ -58,6 +53,6 @@ export class ActiveInactiveDialogComponent implements OnInit {
   }
 
   close(): void {
-    this.dialogRef.close({ accept: false});
+    this.dialogRef.close({ accept: false });
   }
 }

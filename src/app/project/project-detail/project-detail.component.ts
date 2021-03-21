@@ -24,7 +24,7 @@ export class ProjectDetailComponent implements OnInit {
   filterValue = '';
   messageList = '¡Aguarde un momento!';
   isAdminAdmin = false;
-  item: ProyectoInversion | undefined;
+  item?: ProyectoInversion;
 
   // listado
   listEvaluations: ProyectoInversion[] = [];

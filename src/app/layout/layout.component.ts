@@ -38,7 +38,7 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     },
   ];
 
-  @ViewChild('sidenav') sidenav: MatSidenav | undefined;
+  @ViewChild('sidenav') sidenav?: MatSidenav;
 
   @HostListener('window:resize')
   onResize(): void {

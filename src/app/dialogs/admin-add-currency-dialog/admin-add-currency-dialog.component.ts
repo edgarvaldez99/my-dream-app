@@ -16,7 +16,7 @@ export class AdminAddCurrencyDialogComponent implements OnInit {
   msg = 'Agregar nueva moneda';
   btn = 'Guardar';
   btn2 = 'Cancelar';
-  currency: Currency | undefined;
+  currency?: Currency;
   formGroup = this.formBuilder.group({
     name: ['', Validators.required],
     symbol: ['', Validators.required],

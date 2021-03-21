@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActiveInactiveDialogComponent } from 'src/app/dialogs/active-inactive-dialog/active-inactive-dialog.component';
 import { AdminAddUserDialogComponent } from 'src/app/dialogs/admin-add-user-dialog/admin-add-user-dialog.component';
 import { RoleEnum } from 'src/app/enums/role.enum';
-import { UserStatusEnum } from 'src/app/enums/user-status.enum';
+import { StatusEnum } from 'src/app/enums/status.enum';
 import { ActiveInactiveData } from 'src/app/interfaces/active-inactive-data';
 import { User } from 'src/app/interfaces/user';
 import { FilterService } from 'src/app/services/filter.service';
@@ -21,10 +21,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
 
-  user: User | undefined;
+  user?: User;
   estados = [
-    { estado: UserStatusEnum.ACTIVE },
-    { estado: UserStatusEnum.INACTIVE }
+    { estado: StatusEnum.ACTIVE },
+    { estado: StatusEnum.INACTIVE }
   ];
   roles = [
     { rol: RoleEnum.ADMIN, desc: 'Administrador' },
@@ -45,11 +45,10 @@ export class UserComponent implements OnInit {
   listUsers: User[] = [];
   displayedColumns = ['users', 'name', 'status', 'lastlogin', 'rol', 'actions'];
   dataSource: MatTableDataSource<User>;
+  role = null;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | null = null;
   @ViewChild(MatSort, { static: true }) sort: MatSort | null = null;
-
-  role = null;
 
   constructor(
     public dialog: MatDialog,
@@ -109,7 +108,6 @@ export class UserComponent implements OnInit {
         msg: 'Agregar nuevo usuario',
         btn: 'AGREGAR',
         btn2: 'CANCELAR',
-        user: null
       }
     });
 
@@ -134,7 +132,7 @@ export class UserComponent implements OnInit {
         msg: 'Estas por actualizar los datos del usuario',
         btn: 'EDITAR',
         btn2: 'CANCELAR',
-        user: user ? user : null
+        item: user
       }
     });
 
@@ -164,25 +162,19 @@ export class UserComponent implements OnInit {
         msg,
         btn,
         btn2,
-        user,
+        item: user.status,
       }
     });
 
     // Se ejcuta luego de cerrarse el popup
     editDialog.afterClosed().subscribe((data: ActiveInactiveData) => {
       // Preguntar si se presiono sobre Cancelar
-      const status = data.status || UserStatusEnum.INACTIVE;
+      const status = data.status || StatusEnum.INACTIVE;
       if (data.accept && user.id) {
         this.openSnackBar('Aguarde un momento');
-        this.userService.changeStatus(user.id, status).subscribe(
-          (resp) => {
-            this.listUsersAll();
-          },
-          (error) => {
-            console.log(error);
-            this.openSnackBar('Ha ocurrido un problema', 'Error');
-          }
-        );
+        this.userService.changeStatus(user.id, status).subscribe(() => {
+          this.listUsersAll();
+        });
       }
     });
   }

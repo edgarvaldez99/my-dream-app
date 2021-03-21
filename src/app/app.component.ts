@@ -14,9 +14,9 @@ import { HttpErrorSnackBarComponent } from './shared/http-error-snack-bar/http-e
 })
 export class AppComponent implements OnInit, OnDestroy {
   loading = false;
-  loadingDialogRef: MatDialogRef<LoadingDialogComponent> | undefined;
-  loadingSubscription: Subscription | undefined;
-  httpErrorSubscription: Subscription | undefined;
+  loadingDialogRef?: MatDialogRef<LoadingDialogComponent>;
+  loadingSubscription?: Subscription;
+  httpErrorSubscription?: Subscription;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   constructor(
