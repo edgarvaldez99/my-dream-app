@@ -9,6 +9,7 @@ import { ActiveInactiveDialogComponent } from './active-inactive-dialog/active-i
 import { AdminAddUserDialogComponent } from './admin-add-user-dialog/admin-add-user-dialog.component';
 import { AddEvaluationDialogComponent } from './add-evaluation-dialog/add-evaluation-dialog.component';
 import { HelpBuyerDialogComponent } from './help-buyer-dialog/help-buyer-dialog.component';
+import { ChangePasswordDialogComponent } from './change-password-dialog/change-password-dialog.component';
 
 
 
@@ -20,6 +21,7 @@ import { HelpBuyerDialogComponent } from './help-buyer-dialog/help-buyer-dialog.
     AdminAddUserDialogComponent,
     AddEvaluationDialogComponent,
     HelpBuyerDialogComponent,
+    ChangePasswordDialogComponent,
   ],
   entryComponents: [
     ForgotPasswordDialogComponent,

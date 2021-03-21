@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ChangePasswordDialogComponent } from 'src/app/dialogs/change-password-dialog/change-password-dialog.component';
 import { HelpBuyerDialogComponent } from 'src/app/dialogs/help-buyer-dialog/help-buyer-dialog.component';
 import { RoleEnum } from 'src/app/enums/role.enum';
 import { AuthService } from 'src/app/services/auth.service';
@@ -31,6 +32,14 @@ export class HeaderComponent implements OnInit {
 
   toggleSidebarMenu(): void {
     this.menuConfigService.toggleSidebarMenu();
+  }
+
+  changePassword(): void {
+    this.dialog.open(ChangePasswordDialogComponent, {
+      disableClose: false,
+      maxWidth: '550px',
+      width: '80vw',
+    });
   }
 
   openHelpDialog(fromPage: string): void {

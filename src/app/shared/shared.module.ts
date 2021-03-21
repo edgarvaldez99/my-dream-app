@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpErrorSnackBarComponent } from './http-error-snack-bar/http-error-snack-bar.component';
 import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './header/header.component';
+import { DialogsModule } from '../dialogs/dialogs.module';
 
 
 
@@ -19,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     MaterialModule,
     RouterModule,
+    DialogsModule,
   ],
 })
 export class SharedModule { }

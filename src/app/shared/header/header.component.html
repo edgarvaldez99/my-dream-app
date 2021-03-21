@@ -13,14 +13,11 @@
   </div>
   <ng-container *ngIf="userObservable$ | async as user">
     <button mat-button class="avatar-container" [matMenuTriggerFor]="menu">
-      <span class="account-name">{{user.first_name}}</span>
+      <span class="account-name">{{user.first_name}} {{user.last_name}}</span>
       <mat-icon class="account-icon">account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <div mat-menu-item class="full-name" disableRipple (click)="$event.stopPropagation()">
-        {{user.first_name}} {{user.last_name}}
-      </div>
-      <!-- <button mat-menu-item (click)="changePassword()">Cambiar contraseña</button> -->
+      <button mat-menu-item (click)="changePassword()">Cambiar contraseña</button>
       <button mat-menu-item (click)="openHelpDialog('/admin')">Ayuda</button>
       <button mat-menu-item (click)="logout()">Cerrar sesión</button>
     </mat-menu>
