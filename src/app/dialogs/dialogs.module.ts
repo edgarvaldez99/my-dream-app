@@ -8,6 +8,7 @@ import { ForgotPasswordDialogComponent } from './forgot-password-dialog/forgot-p
 import { ActiveInactiveDialogComponent } from './active-inactive-dialog/active-inactive-dialog.component';
 import { AdminAddUserDialogComponent } from './admin-add-user-dialog/admin-add-user-dialog.component';
 import { AddEvaluationDialogComponent } from './add-evaluation-dialog/add-evaluation-dialog.component';
+import { HelpBuyerDialogComponent } from './help-buyer-dialog/help-buyer-dialog.component';
 
 
 
@@ -18,6 +19,7 @@ import { AddEvaluationDialogComponent } from './add-evaluation-dialog/add-evalua
     ActiveInactiveDialogComponent,
     AdminAddUserDialogComponent,
     AddEvaluationDialogComponent,
+    HelpBuyerDialogComponent,
   ],
   entryComponents: [
     ForgotPasswordDialogComponent,

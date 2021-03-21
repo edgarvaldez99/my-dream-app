@@ -1,5 +1,24 @@
 @import "~src/assets/scss/colors.scss";
 
+.mat-button-base {
+  &.mat-button,
+  &.mat-flat-button,
+  &.mat-raised-button,
+  &.mat-stroked-button,
+  &.mat-fab,
+  &.mat-mini-fab {
+    &.outline {
+      background-color: white;
+      border: 2px solid $black;
+      color: $black;
+      line-height: 32px;
+    }
+    &.mat-button-disabled {
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
 .gradient {
   &.mat-flat-button,
   &.mat-raised-button,

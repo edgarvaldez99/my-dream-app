@@ -20,8 +20,8 @@
       <div mat-menu-item class="full-name" disableRipple (click)="$event.stopPropagation()">
         {{user.first_name}} {{user.last_name}}
       </div>
-      <!-- <button mat-menu-item (click)="changePassword()">Cambiar contraseña</button>
-      <button mat-menu-item (click)="openHelpDialog('/admin')">Ayuda</button> -->
+      <!-- <button mat-menu-item (click)="changePassword()">Cambiar contraseña</button> -->
+      <button mat-menu-item (click)="openHelpDialog('/admin')">Ayuda</button>
       <button mat-menu-item (click)="logout()">Cerrar sesión</button>
     </mat-menu>
   </ng-container>

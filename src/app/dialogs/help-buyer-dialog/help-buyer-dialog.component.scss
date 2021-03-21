@@ -1,0 +1,19 @@
+.mat-dialog-header {
+  margin-bottom: 1rem;
+}
+
+.mat-dialog-title {
+  margin: 0;
+  margin-top: 7px;
+}
+
+$button-color: rgb(239, 140, 31);
+
+.mat-button-base {
+  &.mat-flat-button {
+    &.outline {
+      border: 2px solid $button-color;
+      color: $button-color;
+    }
+  }
+}

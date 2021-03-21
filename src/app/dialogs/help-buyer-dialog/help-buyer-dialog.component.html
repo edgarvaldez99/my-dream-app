@@ -1,0 +1,31 @@
+
+<div class="row mat-dialog-header">
+  <div class="col">
+    <h2 mat-dialog-title>¿Necesitas ayuda?</h2>
+  </div>
+  <button mat-icon-button class="col-auto" (click)="close(false)">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content>
+  <div class="py-2 text-primary">Te ofrecemos algunos manuales que te pueden guiar en el uso de la página</div>
+  <div class="py-2 text-primary">Si tenes otra consulta, ¡no dudes en comunicarte con nosotros!</div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-flat-button class="outline" (click)="downloadFile('buyer')" [disabled]="isLoading">
+    Manual Comprador
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+  </button>
+
+  <button mat-flat-button class="outline" (click)="downloadFile('seller')" [disabled]="isLoading" *ngIf="fromPage != '/landing'">
+    Manual Vendedor
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+  </button>
+
+  <button mat-flat-button class="outline" (click)="downloadFile('admin')" [disabled]="isLoading" *ngIf="fromPage == '/admin'">
+    Manual Administrador
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+  </button>
+</mat-dialog-actions>
