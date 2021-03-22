@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from 'src/app/interfaces/dialog-data';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class ForgotPasswordDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private dialogRef: MatDialogRef<ForgotPasswordDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: any,
+    @Inject(MAT_DIALOG_DATA) private data: DialogData,
   ) { }
 
   ngOnInit(): void {

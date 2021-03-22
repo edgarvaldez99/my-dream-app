@@ -4,7 +4,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { ProyectoInversion } from 'src/app/interfaces/proyecto-inversion';
 import { FilterService } from 'src/app/services/filter.service';
 import { ProyectoInversionService } from 'src/app/services/proyecto-inversion.service';
@@ -37,7 +36,6 @@ export class ProjectListComponent implements OnInit {
     public dialog: MatDialog,
     private proyectoInversionService: ProyectoInversionService,
     private filterService: FilterService,
-    private router: Router,
     private snackBar: MatSnackBar,
   ) {
     this.dataSource = new MatTableDataSource(this.listProjects);

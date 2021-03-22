@@ -1,19 +1,18 @@
+<form [formGroup]="formGroup" (submit)="action()">
+  <h2 mat-dialog-title>{{title}}</h2>
+  <p class="py-2 text-primary">{{msg}}</p>
 
-<h2 mat-dialog-title>{{title}}</h2>
-<p class="py-2 text-primary">{{msg}}</p>
-
-<mat-dialog-content>
-  <form [formGroup]="formGroup">
+  <mat-dialog-content>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Estados</mat-label>
-      <mat-select formControlName="statusCtrl" required>
+      <mat-select formControlName="status">
         <mat-option *ngFor="let item of estados" [value]="item.estado">{{item.estado}}</mat-option>
       </mat-select>
     </mat-form-field>
-  </form>
-</mat-dialog-content>
+  </mat-dialog-content>
 
-<mat-dialog-actions class="end-xs">
-  <button mat-flat-button color="accent" class="outline" (click)="close()">{{btn2}}</button>
-  <button mat-raised-button color="accent" (click)="action()">{{btn}}</button>
-</mat-dialog-actions>
+  <mat-dialog-actions class="end-xs">
+    <button type="button" mat-flat-button color="accent" class="outline" (click)="close()">{{btn2}}</button>
+    <button type="submit" mat-raised-button color="accent">{{btn}}</button>
+  </mat-dialog-actions>
+</form>

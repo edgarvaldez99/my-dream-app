@@ -26,7 +26,7 @@ export class ChangePasswordDialogComponent implements OnInit {
       newPasswordConfirm: ['', Validators.required]
     },
     {
-      validator: confirmPasswordValidator('newPassword', 'newPasswordConfirm')
+      validators: confirmPasswordValidator('newPassword', 'newPasswordConfirm')
     },
   );
 

@@ -40,7 +40,7 @@ export class AdminAddUserDialogComponent implements OnInit {
       rol: ['', Validators.required]
     },
     {
-      validator: confirmPasswordValidator('password', 'passwordRepeat')
+      validators: confirmPasswordValidator('password', 'passwordRepeat')
     },
   );
 

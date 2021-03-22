@@ -38,10 +38,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password)
       .subscribe(resp => {
         if (this.authService.loggedUserHasRole(RoleEnum.ADMIN)) {
-          this.router.navigate(['/project'], { replaceUrl: true });
+          this.router.navigate(['/'], { replaceUrl: true });
         }
         if (this.authService.loggedUserHasRole(RoleEnum.AINV)) {
-          this.router.navigate(['/project'], { replaceUrl: true });
+          this.router.navigate(['/'], { replaceUrl: true });
           console.log(this.authService.loggedUserHasRole(RoleEnum.AINV));
           console.log(resp.user.first_name);
           console.log('Se inicio con AINV');

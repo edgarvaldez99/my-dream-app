@@ -1,8 +1,8 @@
-<h2 mat-dialog-title>Nueva Evaluación</h2>
-<p class="py-2 text-primary">Nombre de la Evaluación</p>
+<form [formGroup]="formGroup" (submit)="action()">
+  <h2 mat-dialog-title>Nueva Evaluación</h2>
+  <p class="py-2 text-primary">Nombre de la Evaluación</p>
 
-<mat-dialog-content>
-  <form [formGroup]="formGroup">
+  <mat-dialog-content>
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="nombreProyectoCtrl">
@@ -10,10 +10,10 @@
         El nombre es <strong>requerido</strong>
       </mat-error>
     </mat-form-field>
-  </form>
-</mat-dialog-content>
+  </mat-dialog-content>
 
-<mat-dialog-actions class="end-xs">
-  <button mat-flat-button color="accent" class="outline" (click)="close()">CANCELAR</button>
-  <button mat-raised-button color="accent" (click)="action()">SIGUIENTE</button>
-</mat-dialog-actions>
+  <mat-dialog-actions class="end-xs">
+    <button type="button" mat-flat-button color="accent" class="outline" (click)="close()">CANCELAR</button>
+    <button type="submit" mat-raised-button color="accent">SIGUIENTE</button>
+  </mat-dialog-actions>
+</form>

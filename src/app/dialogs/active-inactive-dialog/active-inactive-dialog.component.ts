@@ -4,7 +4,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { StatusEnum } from 'src/app/enums/status.enum';
 import { DialogData } from 'src/app/interfaces/dialog-data';
-import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-active-inactive-dialog',
@@ -22,7 +21,7 @@ export class ActiveInactiveDialogComponent implements OnInit {
     { estado: StatusEnum.INACTIVE }
   ];
   formGroup = this.formBuilder.group({
-    statusCtrl: [StatusEnum.INACTIVE, Validators.required]
+    status: [StatusEnum.INACTIVE, Validators.required]
   });
 
   constructor(
@@ -40,7 +39,7 @@ export class ActiveInactiveDialogComponent implements OnInit {
       this.btn2 = this.data.btn2;
       this.status = this.data.item;
     }
-    this.formGroup.get('statusCtrl')?.setValue(this.status ?? '');
+    this.formGroup.get('status')?.setValue(this.status ?? '');
   }
 
   openSnackBar(message: string, message2: string): void {
@@ -48,7 +47,7 @@ export class ActiveInactiveDialogComponent implements OnInit {
   }
 
   action(): void {
-    const status = this.formGroup.value.statusCtrl;
+    const status = this.formGroup.value.status;
     this.dialogRef.close({ accept: true, status });
   }
 

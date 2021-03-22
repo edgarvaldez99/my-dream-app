@@ -5,3 +5,11 @@ export interface DialogData {
   btn2: string;
   item?: any;
 }
+
+export const mockDialogData: DialogData = {
+  title: '',
+  msg: '',
+  btn: '',
+  btn2: '',
+  item: {},
+};

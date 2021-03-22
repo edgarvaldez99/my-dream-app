@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ChangePasswordDialogComponent } from 'src/app/dialogs/change-password-dialog/change-password-dialog.component';
-import { HelpBuyerDialogComponent } from 'src/app/dialogs/help-buyer-dialog/help-buyer-dialog.component';
 import { RoleEnum } from 'src/app/enums/role.enum';
 import { AuthService } from 'src/app/services/auth.service';
 import { MenuConfigService } from 'src/app/services/menu-config.service';
@@ -39,24 +38,6 @@ export class HeaderComponent implements OnInit {
       disableClose: false,
       maxWidth: '550px',
       width: '80vw',
-    });
-  }
-
-  openHelpDialog(fromPage: string): void {
-    // Abre el popup de edicion
-    const editDialog = this.dialog.open(HelpBuyerDialogComponent, {
-      disableClose: false,
-      data: fromPage,
-      maxWidth: '550px',
-      width: '80vw',
-    });
-
-    // Se ejcuta luego de cerrarse el popup
-    editDialog.afterClosed().subscribe((data: boolean) => {
-      const isCopy = data;
-      if (isCopy) {
-
-      }
     });
   }
 }

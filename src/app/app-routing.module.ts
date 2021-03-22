@@ -4,6 +4,11 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/admin/user/list',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     redirectTo: '/account/login',
     pathMatch: 'full'

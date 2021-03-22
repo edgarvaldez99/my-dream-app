@@ -8,7 +8,6 @@ import { ForgotPasswordDialogComponent } from './forgot-password-dialog/forgot-p
 import { ActiveInactiveDialogComponent } from './active-inactive-dialog/active-inactive-dialog.component';
 import { AdminAddUserDialogComponent } from './admin-add-user-dialog/admin-add-user-dialog.component';
 import { AddEvaluationDialogComponent } from './add-evaluation-dialog/add-evaluation-dialog.component';
-import { HelpBuyerDialogComponent } from './help-buyer-dialog/help-buyer-dialog.component';
 import { ChangePasswordDialogComponent } from './change-password-dialog/change-password-dialog.component';
 import { AdminAddCurrencyDialogComponent } from './admin-add-currency-dialog/admin-add-currency-dialog.component';
 
@@ -21,7 +20,6 @@ import { AdminAddCurrencyDialogComponent } from './admin-add-currency-dialog/adm
     ActiveInactiveDialogComponent,
     AdminAddUserDialogComponent,
     AddEvaluationDialogComponent,
-    HelpBuyerDialogComponent,
     ChangePasswordDialogComponent,
     AdminAddCurrencyDialogComponent,
   ],
@@ -31,6 +29,8 @@ import { AdminAddCurrencyDialogComponent } from './admin-add-currency-dialog/adm
     ActiveInactiveDialogComponent,
     AdminAddUserDialogComponent,
     AddEvaluationDialogComponent,
+    ChangePasswordDialogComponent,
+    AdminAddCurrencyDialogComponent,
   ],
   imports: [
     CommonModule,
