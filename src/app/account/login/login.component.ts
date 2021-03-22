@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ForgotPasswordDialogComponent } from 'src/app/dialogs/forgot-password-dialog/forgot-password-dialog.component';
 import { RoleEnum } from 'src/app/enums/role.enum';
@@ -35,18 +35,16 @@ export class LoginComponent implements OnInit {
   login(): void {
     const username = this.loginForm.get('username')?.value || '';
     const password = this.loginForm.get('password')?.value || '';
-    this.authService.login(username, password)
-      .subscribe(resp => {
+    this.authService.login(username, password).subscribe({
+      next: () => {
         if (this.authService.loggedUserHasRole(RoleEnum.ADMIN)) {
           this.router.navigate(['/'], { replaceUrl: true });
         }
         if (this.authService.loggedUserHasRole(RoleEnum.AINV)) {
-          this.router.navigate(['/'], { replaceUrl: true });
-          console.log(this.authService.loggedUserHasRole(RoleEnum.AINV));
-          console.log(resp.user.first_name);
-          console.log('Se inicio con AINV');
+          this.router.navigate(['/project'], { replaceUrl: true });
         }
-      });
+      }
+    });
   }
 
   forgotPass(): void {
@@ -63,11 +61,13 @@ export class LoginComponent implements OnInit {
     });
 
     // Se ejcuta luego de cerrarse el popup
-    editDialog.afterClosed().subscribe(data => {
-      // Preguntar si se presiono sobre Cancelar
-      const isConfirm = typeof data === 'boolean' && data === true;
-      if (isConfirm) {
-        this.openSnackBar('Aguarde un momento');
+    editDialog.afterClosed().subscribe({
+      next: data => {
+        // Preguntar si se presiono sobre Cancelar
+        const isConfirm = typeof data === 'boolean' && data === true;
+        if (isConfirm) {
+          this.openSnackBar('Aguarde un momento');
+        }
       }
     });
   }
